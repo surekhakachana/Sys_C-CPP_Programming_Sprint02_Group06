@@ -1,0 +1,207 @@
+Pseudocode: Super Market Billing System
+Start: 
+
+
+In the class shopping we declare a variables as private and declare functions as public
+Declare a Main_menu() function
+     Declare a variables are username[20], password[20];
+     print supermarket main menu
+     start switch case 
+            case 1:   //Compare Entered username with username in file and also Entered password with password(which is stored)in file 
+                   if(username(entered) == username(in file))
+                       {
+	                   if(password(entered) == password(in file))
+	                       {
+		                   Print “Logged in Successfully”
+		                       //Admin has to view the menu
+                                    Admin_Menu();
+	                         }
+                       }
+                    else
+                       {
+	                  print "password is wrong or username is wrong"
+                          Main_Menu();
+                       }
+
+            case 2:   call the Customer_Menu() 
+            case 3:   Exit(0)
+            default:  print please select from the given option
+     end switch case
+
+
+
+Declare a Admin_Menu() function
+
+        Declare a variable as choice
+        Enter the choice for option
+        start switch case
+              case 1: add the products to the supermarket
+                              call the Add_A_Product() function
+              case 2: modify the products in the supermarket
+                              call the Modify_A_Product() function
+              case 3: delete the products from the supermarket
+                              call the Delete_A_Product() function
+              case 4: search for the products in the supermarket
+                              call the Search_A_Products function
+              case 5: display the all product details
+                              call Display_Product_Details() function
+              default: 
+                           please enter the correct option
+        end switch case
+
+
+Declare a Customer_Menu() function
+
+          Declare a variable as choice
+          Enter the choice for option
+          start switch case
+                  case 1: customer check the product details which products are available in the supermarket
+                                  call the Check_The_Product_Details() function
+                  case 2: custome place ordres as per customer needs
+                                  call the Place_Order() function
+                  default:
+                            please enter the correct option
+          end switch case
+
+
+
+declare a Add_A_Products() function
+
+         Admin can add the Product details such as Product Name, Product Code, ,Discount for product Price of product
+         create an object for ofstream class such as out
+         open the file name as Product_Details.txt
+         if(!out.is_open())
+               cannot open the file
+         do
+         {
+             Enter the product details like product code,product name,product price,product discount
+             if we want to continue add the product details press 1 otherwise o
+         }while(n!=0)
+         write data to the file is done
+         close file
+               out.close();         
+
+declare a Modify_A_Products() function
+
+         Admin can delete Product details.
+         declare a Product_Key for 
+         declare a fstream data, data1
+         open the file in read mode
+         if(!data)
+               print"No data is present"
+         else
+              open the file in write mode i.e data1
+              write the data into the file
+         while(!data.eof())
+         {
+               if(Product_Key==Product_Code)
+                     write data to the file
+               else
+                     modify the details
+                     increment found
+               if(Product_Key== 0)
+               print "Product_Code not found to modify"
+         Close the data1 file
+                data1.close()
+         close the data file
+                data.close
+
+
+Declare a Delete_A_Product() function
+      
+       Admin can delete product details.
+       Enter the product code
+       Declare the ifstream data, data1
+       open the file in read mode
+       if(!data)
+               print"No data is present"
+       else
+           open the file in write mode i.e data1 object
+           write the data into the file 
+           while(!data.eof())
+           {  
+               if(Product_Code==Product_Key)
+                  {
+                      print"product successfully deleted"
+                      increment found
+                  }
+                else
+                     write the data to the file
+           }
+         close the data1
+                 data1.close()
+         close the data 
+                 data.close()
+         remove the Product_Details text file and rename it
+
+
+Declare the Search_Products() function
+
+            Admin can search product record by providing product.
+            Declare the fstream data 
+            Open the file in read mode
+            if(!file)
+    	              print "no data is present"
+             else
+                     Enter the Product Code to search the data
+                     while(!data.eof())
+    	                   if(Product_Code == Product_Key)
+       		               print the product details from file
+		                increment found
+             if(found == 0)
+    	              print "Product Code not found"
+             Close the file
+    	            data.close()
+
+Display Product_Details Function:
+
+	Admin can view all the Product record.
+       
+        Open file in read mode
+        if(data == empty)
+	          print"No Data is present.."
+        else
+	      open file
+	       print data from file
+         close file
+               data.close()
+             
+                
+Display Check_The_Product_Details() function
+
+           declare the fstream data
+           open the file in the read mode
+           while(!data.eof())
+                 check the product details
+           close the file
+                  data.close()   
+
+
+Declare a place_the_order() function
+          Declare the fstream data
+          open the file in read mode
+          if(!data)
+              print"no database is present"
+          close the file
+          do
+                  print" Enter product code"
+                  print" Enter product quantity"
+                  for(int i=0;i<c;i++)
+                      if(arrc[c]==arrc[i])
+                           c++
+                           print"Do you want to buy another product? if yes then press y else no"
+                      Enter the choice
+           while(choice =="y");
+           print"RECEIPT"
+           for(int i=0;i<c;;i++)
+                    open the file in read mode
+                    while(!data.eof())
+                            if(Product_code==arrc[i])
+                                   amount=price*arrq[i]
+                                   dis=amount-(amount*dis/100)
+                                   total=total+dis;
+            print"TOTAL"
+            close the file
+                 data.close()
+          
+                                           
