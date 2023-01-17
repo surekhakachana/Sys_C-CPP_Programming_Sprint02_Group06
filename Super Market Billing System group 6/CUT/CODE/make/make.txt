@@ -1,0 +1,12 @@
+all: smbs
+
+smbs: Main.o Admin.o Customer.o
+        g++ Main.o Admin.o Customer.o -o smbs
+
+Admin.o: Admin.cpp
+        g++ -c Admin.h Admin.cpp
+Customer.o: Customer.cpp
+        g++ -c Customer.h Customer.cpp
+
+Main.o: Main.cpp
+        g++ -c Main.cpp
