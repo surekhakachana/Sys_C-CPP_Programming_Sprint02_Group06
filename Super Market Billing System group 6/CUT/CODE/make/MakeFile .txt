@@ -1,0 +1,43 @@
+BIN = /home/pruchith/supermarket_billing_system/CUT/CODE/bin
+INC = /home/pruchith/supermarket_billing_system/CUT/CODE/inc
+SRC = /home/pruchith/supermarket_billing_system/CUT/CODE/src
+OBJ = /home/pruchith/supermarket_billing_system/CUT/CODE/obj
+
+
+CFLAGS = -c -g -Wall
+LFLAGS = -o
+GCC = g++
+CVFLAGS = -Wall -c -g
+IFLAGS = -I $(INC)
+
+
+all : $(BIN)/sbms
+
+
+$(OBJ)/Main.o : $(SRC)/Main.cpp
+        $(GCC) $(CFLAGS) $(SRC)/Main.cpp $(IFLAGS)
+        mv *.o /home/pruchith/supermarket_billing_system/CUT/CODE/obj
+
+
+$(OBJ)/Customer.o : $(SRC)/Customer.cpp
+        $(GCC) $(CFLAGS) $(SRC)/Customer.cpp $(IFLAGS)
+        mv *.o /home/pruchith/supermarket_billing_system/CUT/CODE/obj
+
+
+$(OBJ)/Admin.o : $(SRC)/Admin.cpp
+        $(GCC) $(CFLAGS) $(SRC)/Admin.cpp $(IFLAGS)
+        mv *.o /home/pruchith/supermarket_billing_system/CUT/CODE/obj
+
+
+$(OBJ)/Validation.o : $(SRC)/Validation.cpp
+        $(GCC) $(CFLAGS) $(SRC)/Validation.cpp $(IFLAGS)
+        mv *.o /home/pruchith/supermarket_billing_system/CUT/CODE/obj
+
+
+$(BIN)/sbms : $(OBJ)/Main.o $(OBJ)/Admin.o $(OBJ)/Customer.o $(OBJ)/Validation.o
+        $(GCC) $(OBJ)/Main.o $(OBJ)/Admin.o $(OBJ)/Customer.o  $(OBJ)/Validation.o $(LFLAGS) $(BIN)/sbms
+
+
+clean:
+        rm *.o
+        rm *.gch
